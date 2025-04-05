@@ -12,14 +12,14 @@ exports.addCart = async (req, res) => {
         }
 
         // Get user information from the session
-        const sessionUser = req.session.user;
-        if (!sessionUser) {
-            throw new Error("User is not logged in");
-        }
+        // const sessionUser = req.session.user;
+        // if (!sessionUser) {
+        //     throw new Error("User is not logged in");
+        // }
 
         // Check if the product is already in the user's cart
         const existingCartItem = await Cart.findOne({
-            userId: sessionUser._id,
+            userId: "67f08a6f9364e0c301ce1bf3",
             productId: productId
         });
 
@@ -29,7 +29,7 @@ exports.addCart = async (req, res) => {
 
         // Create and save the new cart item
         const newCart = new Cart({
-            userId: sessionUser._id,
+            userId: "67f08a6f9364e0c301ce1bf3",
             productId: productId,
             createdAt: new Date() // Add creation time
         });
